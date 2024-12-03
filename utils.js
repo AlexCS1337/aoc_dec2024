@@ -7,7 +7,7 @@ class Utils {
 
   openFile(path) {
     const contents = this.fs.readFileSync(path, "utf8");
-    return contents;
+    return this.splitLines(conents);
   }
 
   splitLines(contents) {
