@@ -16,16 +16,7 @@ int main()
   std::string line;
   std::ifstream inputFile ("input.txt");
   std::vector<int> leftList, rightList;
-  // if (inputFile.is_open())
-  // {
-    // while ( getline (inputFile,line) )
-    // {
-      // std::cout << line << '\n';
-    // }
-    // inputFile.close();
-  // }
 
-  // else std::cout << "Unable to open file";
   while (std::getline(inputFile, line)) {
         std::stringstream ss(line);
         std::string left, right;
