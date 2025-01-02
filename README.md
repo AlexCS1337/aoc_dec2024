@@ -1,4 +1,4 @@
-# Advent of Code
+# Advent of Code 2024
 ```
 there are always 2 parts 
 
@@ -11,9 +11,9 @@ need fs to open file in node.js
 make a folder for each day.
 each day folder should look like
 
-solution.js
+solution.cpp
 input.txt
 sample.txt
-solution.test.js
+solution.text
 ```
 
