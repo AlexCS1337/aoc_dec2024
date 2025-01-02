@@ -1,27 +1,23 @@
 // Advent Of Code 2024 - Day #1: Part 1
 //
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <string>
 
 int main()
 {
-  char str[80];
-  FILE* ptr;
-
-  ptr = fopen("input.txt", "r");
-
-  if (ptr == NULL) 
+  std::string line;
+  std::ifstream inputFile ("input.txt");
+  if (inputFile.is_open())
   {
-    printf("Error While opening file");
-        
-    exit(1);
+    while ( getline (inputFile,line) )
+    {
+      std::cout << line << '\n';
+    }
+    inputFile.close();
   }
-  
-  if(fgets(str, 80, ptr) != NULL)
-  {
-    puts(str);
-  }
-  fclose(ptr);
+
+  else std::cout << "Unable to open file"; 
 
   return 0;
 }
