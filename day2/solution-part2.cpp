@@ -1,36 +1,67 @@
-// Advent Of Code 2024 - Day #1: Part 2
+// Advent Of Code 2024 - Day #2: Part 2
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <sstream>
+#include <cmath>
 #include <chrono>
 #include <algorithm>
 
+bool testSafety(const std::vector<int>& list) {
+    int direction = (list[0] - list[1] > 0) ? 1 : ((list[0] - list[1] < 0) ? -1 : 0);
+
+    for (size_t i = 1; i < list.size(); ++i) {
+        int diff = list[i - 1] - list[i];
+        if (std::abs(diff) < 1 || std::abs(diff) > 3 || ((diff > 0) ? 1 : ((diff < 0) ? -1 : 0)) != direction) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int main() {
     auto start = std::chrono::high_resolution_clock::now();
-    
+
+    std::ifstream file("input.txt");
+    std::vector<std::vector<int>> input;
     std::string line;
-    std::ifstream inputFile("input.txt");
-    std::vector<int> leftList, rightList;
 
-    while (std::getline(inputFile, line)) {
+    while (std::getline(file, line)) {
         std::stringstream ss(line);
-        std::string left, right;
-        ss >> left >> right;
-        leftList.push_back(std::stoi(left));
-        rightList.push_back(std::stoi(right));
+        std::vector<int> report;
+        int number;
+        while (ss >> number) {
+            report.push_back(number);
+        }
+        input.push_back(report);
     }
 
-    int similarityScore = 0;
+    int numSafe = 0;
 
-    for (int num : leftList) {
-        // find the number of matches in the Right list
-        int numMatches = std::count(rightList.begin(), rightList.end(), num);
-        similarityScore += num * numMatches;
+    for (const auto& line : input) {
+        bool isSafe = false;
+
+        // Check original line
+        if (testSafety(line)) {
+            isSafe = true;
+        } else {
+            // Check variants with one element removed
+            for (size_t i = 0; i < line.size(); ++i) {
+                std::vector<int> newNumbers = line;
+                newNumbers.erase(newNumbers.begin() + i);
+                if (testSafety(newNumbers)) {
+                    isSafe = true;
+                    break;
+                }
+            }
+        }
+
+        if (isSafe) numSafe += 1;
     }
 
-    std::cout << "similarityScore: " << similarityScore << "\n";
+    std::cout << "numSafe: " << numSafe << "\n";
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> execution_time = end - start;

@@ -23,7 +23,7 @@ bool testSafety(const std::vector<int>& list) {
 int main() {
     auto start = std::chrono::high_resolution_clock::now();
 
-    std::ifstream file("sample.txt");
+    std::ifstream file("input.txt");
     std::vector<std::vector<int>> input;
     std::string line;
 
