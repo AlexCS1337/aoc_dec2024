@@ -1,4 +1,4 @@
---- Day 1: Historian Hysteria ---
+# --- Day 1: Historian Hysteria ---
 The Chief Historian is always present for the big Christmas sleigh launch, but nobody has seen him in months! Last anyone heard, he was visiting locations that are historically significant to the North Pole; a group of Senior Historians has asked you to accompany them as they check the places they think he was most likely to visit.
 
 As each location is checked, they will mark it on their list with a star. They figure the Chief Historian must be in one of the first fifty places they'll look, so in order to save Christmas, you need to help them get fifty stars on their list before Santa takes off on December 25th.
@@ -36,5 +36,10 @@ Finally, the largest number in the left list is 4, while the largest number in t
 To find the total distance between the left list and the right list, add up the distances between all of the pairs you found. In the example above, this is 2 + 1 + 0 + 1 + 2 + 5, a total distance of 11!
 
 Your actual left and right lists contain many location IDs. What is the total distance between your lists?
+
+## Summary:
+The Chief Historian has vanished, and two groups of Senior Historians have separately made lists of “location IDs” (numbers) of historically significant places. Unfortunately, the two lists don’t match well.
+
+Your job is to reconcile the lists. You are given two sequences of numbers. Sort each list, then pair them by position (smallest with smallest, second-smallest with second-smallest, etc.). For each pair, compute the absolute difference (“distance”) between the two IDs, then sum all those distances. The result is the “total distance” between the two lists.
 
 https://adventofcode.com/2024/
