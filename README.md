@@ -1,4 +1,6 @@
-# Advent of Code 2024 — Day Summaries
+# Advent of Code 2024
+
+# Day Summaries
 
 ## Day 01: Historian Hysteria  
 The Chief Historian is missing. Two groups of Senior Historians have compiled separate lists of “location IDs” (numbers) representing historically significant places. Your task: take the two sequences, sort each list, pair items by their rank (smallest with smallest, second-smallest with second-smallest, etc.), compute the absolute difference for each pair, and sum those differences to get the total “distance” between the lists.  
